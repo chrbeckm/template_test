@@ -20,7 +20,8 @@ permissions:
 jobs:
   cleanup-toolbox-workshop-template:
     # ensure run only once, when repo generated
-    if: github.run_number == 1
+    # https://github.com/JetBrains/intellij-platform-plugin-template/blob/main/.github/workflows/template-cleanup.yml
+    if: github.event.repository.name != 'template_test'
 
     runs-on: ubuntu-latest
     
