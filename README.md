@@ -28,8 +28,8 @@ Dupliziert den `vXXX`-Ordner und benennt ihn nach eurem Versuch.
 Hier wird das einmal beispielhaft mit dem Versuch v101 gezeigt.
 Wir nutzen dazu das Terminal und fangen im Hauptordner des Repositories an.
 
-_Wie erkenne ich den Hauptordner? Gib im Terminal `ls -a` ein,
-Siehst du `.git` in der Liste, bist du im Hauptordner._
+_Wie erkenne ich den Hauptordner?_ Gib im Terminal `ls -a` ein,
+Siehst du `.git` in der Liste, bist du im Hauptordner.
 
 ```
 cp -r vXXX v101
