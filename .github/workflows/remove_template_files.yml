@@ -1,21 +1,31 @@
-# inspired by: https://github.com/orgs/community/discussions/22183#discussioncomment-6321583
+# inspired by: 
+# https://github.com/orgs/community/discussions/22183#discussioncomment-6321583
+# https://github.com/orgs/community/discussions/22183#discussioncomment-8735650
 
-name: Template Cleanup
-run-name: template-cleanup
+name: cleanup-toolbox-workshop-template
+run-name: cleanup-toolbox-workshop-template
 
 on:
   create:
 
+concurrency:
+  group: first-time-setup
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  checks: write
+  contents: write
+
 jobs:
-  template-cleanup:
-    name: template-cleanup
+  cleanup-toolbox-workshop-template:
+    # ensure run only once, when repo generated
+    if: github.run_number == 1
+
     runs-on: ubuntu-latest
     
-    permissions:
-      contents: write
-
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       # Cleanup project
       - name: Cleanup
@@ -31,7 +41,7 @@ jobs:
 
       # save changed files
       - name: Commit changed files
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Setup repo"
 
